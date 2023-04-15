@@ -1,1 +1,2 @@
-# JS_Game_-
+# JS_Game_만들기
+
