@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./index.css" />
-    <title>Document</title>
+    <title>Wordle</title>
     <style></style>
   </head>
   <body>
@@ -13,7 +13,7 @@
     <hr />
     <br />
     <div id="content-start"></div>
-    <!-- //답안 입력란 -->
+    <!--답안 입력란 -->
     <div>
       <!-- // maxlength="1" 를 이용해서 한칸에 한개 문자 들어가도록 -->
       <input maxlength="1" class="input item1" />
@@ -22,10 +22,11 @@
       <input maxlength="1" class="input item4" />
       <input maxlength="1" class="input item5" />
     </div>
-    <!-- //답안 제출 -->
+    <!-- 답안 제출 -->
     <button class="btn">제출</button>
+    <!-- script -->
     <script>
-      const 답 = "apple";
+      const 답 = "apple"; //원하는 답으로 변경가능!
 
       // 입력하면 다음 input으로 foucus 넘김
       const focusNext = () => {
@@ -41,7 +42,9 @@
         if (
           currInput.value !== " " && // 지금 focus되어있는 input의 값이 공백이 아니고
           currInput.value.length === 1 && // 값이 한 문자라도 들어와 있어야하며 (maxlength가 1이라 그이상은 못들어옴.)
-          nextInput // 마지막 input (class가 item5)일 경우 다음item6 클래스가 없음으로 nextinput이 null임  -> null은 false이기에 조건에 맞지않음으로 focus가  실행되지않음.
+          nextInput
+          // 마지막 input (class가 item5)일 경우 다음item6 클래스가 없음으로
+          //  nextinput이 null임  -> null은 false이기에 조건에 맞지않음으로 focus가  실행되지않음.
         ) {
           // 위 조건이 다 만족할 경우 다음 input이 focus한다.
           nextInput.focus();
@@ -67,7 +70,7 @@
         .addEventListener("keypress", handleSubmit);
 
       let count = 0; // 제출한 횟수 . 처음엔 0
-      let correct = false; // 정답을 맞춘적있는지. 처음엔 false
+      let correct = false; // 정답을 맞춘적있는지. 처음엔 false //빼도 기능에 문제 x
 
       // 제출 버튼 누르면 채점을 해주세요
       //querySelectorAll로 html 요소를 찾고 addEventListener 부착해서 button이라는 요소를 누르면 안에있는 코드를 실행
@@ -126,7 +129,7 @@
             prevInput[i].style.background = "#777C7D";
           }
           prevInput[i].style.color = "white";
-          prevInput[i].style.border = "2px solid transparent";
+          prevInput[i].style.border = "2px solid transparent"; //transparent 박스 테두리 투명하게
 
           //기존에 input 붙어있던 class명들을 제거하는 이유는 ? 제출하고 더이상 작성할수있는 input이 아니므로 input class를 삭제해준다.
           prevInput[i].disabled = true; // 제출된 input은 수정되지않도록 비활성화함.
@@ -137,11 +140,11 @@
         // 제출 버튼 눌렀을때 또 하나의 인풋 버튼 5개 새로 만들어 주고싶다면
         // 미리 html 만들어 놓고 원하는 위치에 넣는다 제출 버튼 누를때 마다 body안에 추가된다
         const template = `<div>
-         <input maxlength="1" class="input item1" />
-         <input maxlength="1" class="input item2" />
-         <input maxlength="1" class="input item3" />
-         <input maxlength="1" class="input item4" />
-         <input maxlength="1" class="input item5" />
+          <input maxlength="1" class="input item1" />
+          <input maxlength="1" class="input item2" />
+          <input maxlength="1" class="input item3" />
+          <input maxlength="1" class="input item4" />
+          <input maxlength="1" class="input item5" />
           </div>`;
 
         document
